@@ -1,5 +1,7 @@
 # 2024 UK General Election: Ward-Level MRP Estimates
 
+<img src="_output/ward_mrp_hex.png" align="right" width="190" alt="Ward MRP 2024 hex sticker with a stylised map of Great Britain in party colours">
+
 [![CSV downloads](https://img.shields.io/github/downloads/jackobailey/ward_mrp/ward_ge2024_results.csv?displayAssetName=false&label=CSV%20downloads&color=0969da)](https://github.com/jackobailey/ward_mrp/releases)
 
 This repository includes MRP estimates of each of the major party's vote shares in all **7,993 2022 census wards in Great Britain** at the **2024 UK general election**. Due to its different party system, Northern Ireland is not included.
