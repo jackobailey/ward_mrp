@@ -1,33 +1,32 @@
-# 2024 Election: Ward Estimates
+# 2024 UK General Election: Ward-Level MRP Estimates
 
 [![CSV downloads](https://img.shields.io/github/downloads/jackobailey/ward_mrp/ward_ge2024_results.csv?displayAssetName=false&label=CSV%20downloads&color=0969da)](https://github.com/jackobailey/ward_mrp/releases)
 
-Party vote shares for **7,993 wards in Great Britain**, estimated for the **2024 UK general election**.
+This repository includes MRP estimates of each of the major party's vote shares in all **7,993 2022 census wards in Great Britain** at the **2024 UK general election**. Due to its different party system, Northern Ireland is not included.
 
-**[Download the estimates (CSV)](https://github.com/jackobailey/ward_mrp/releases/latest/download/ward_ge2024_results.csv)** · 47,376 rows · 95% uncertainty intervals
-
-> **Geography:** These estimates use **2022 census ward boundaries**, which may differ from those in use at the 2024 election. Northern Ireland is not included.
+**[Click here to download the estimates (CSV)](https://github.com/jackobailey/ward_mrp/releases/latest/download/ward_ge2024_results.csv)**
 
 ## About the estimates
 
 I use **multilevel regression and poststratification (MRP)** to combine Wave 29 of the British Election Study Internet Panel with census data from England and Wales (2021) and Scotland (2022).
 
-1. **Model vote choice.** Predict each respondent's party choice using age group, sex, ethnicity, religion, education, housing tenure, socio-economic class (NS-SEC), and economic activity. The model also includes constituency-level 2024 election results and varying effects for wards, constituencies, and government office regions.
-2. **Weight to local populations.** Weight predictions to each ward's census demographic profile using the same demographic variables.
-3. **Calibrate to election results.** Adjust vote counts to match known constituency results, accounting for wards that cross constituency boundaries.
+The process has three steps:
 
-Within each constituency and posterior draw, calibration preserves between-ward odds ratios for parties with positive vote targets. It adjusts overall levels while retaining the modelled differences between wards.
+1. **Model vote choice.** First, I predict each how each respondent in the BES voted based on their age group, sex, ethnicity, religion, education, housing tenure, socio-economic class (NS-SEC), and economic activity, plus the election results in their constituency and information on the ward, constituency, and government office region that they lived in.
+2. **Weight to local populations.** Next, I use the model to make predictions, which I then weight to match each ward's census demographic profile using the same demographic variables that I include in the model.
+3. **Calibrate to election results.** Finally, I calibrate vote counts in each ward to match known constituency results, accounting for wards that cross constituency boundaries.
+
 
 ## What's in the CSV?
 
-Each row represents a **ward–party combination with a positive estimated vote share**. Exactly zero-share rows are omitted; small positive estimates are retained. Shares and uncertainty bounds are proportions: **0.25 means 25%**.
+Each row represents a party that ran in a given ward.
 
 | Column | Description |
 | :--- | :--- |
 | `ward`, `ward_name` | ONS ward code and ward name. |
-| `pcon`, `pcon_name` | Main constituency code and name; see the note on split wards below. |
-| `region` | Government office region; Scotland and Wales are recorded as regions. |
-| `party` | Party code, listed below. |
+| `pcon`, `pcon_name` | Largest overlapping constituency code and name.|
+| `region` | Government office region. |
+| `party` | Party code (see below). |
 | `est` | Estimated share of valid votes. |
 | `lci`, `uci` | Lower and upper bounds of the 95% uncertainty interval. |
 | `votes` | Estimated party votes in the ward. |
@@ -41,11 +40,3 @@ Each row represents a **ward–party combination with a positive estimated vote 
 | `lab` | Labour | `snp` | SNP |
 | `ld` | Liberal Democrat | `pc` | Plaid Cymru |
 | `ref` | Reform UK | `oth` | Other parties and independents |
-
-## Using the estimates
-
-- **Count voters once per ward.** The `voters` value is repeated on every party row, so summing this column across all rows would overcount valid votes.
-- **Treat the constituency field as a label.** It identifies the constituency containing the largest share of the ward's census adult population, with exact ties resolved by constituency code. It does not allocate all of a split ward's votes to that constituency. Do not aggregate the CSV by this label to check constituency totals: whole-ward shares cannot recover the separate constituency contributions of split wards.
-- **Distinguish calibration from accuracy.** Matching constituency results does not establish ward-level accuracy. These are modelled estimates, with uncertainty bounds supplied in the CSV.
-
-*The counter records CSV release downloads from 28 September 2026, including repeat downloads. Direct downloads of the repository file and repository clones are not included.*
