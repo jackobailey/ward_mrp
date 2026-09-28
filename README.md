@@ -8,6 +8,8 @@ This repository includes MRP estimates of each of the major party's vote shares 
 
 **[Click here to download the estimates (CSV)](https://github.com/jackobailey/ward_mrp/releases/latest/download/ward_ge2024_results.csv)**
 
+**[Explore the interactive map](https://jack-bailey.co.uk/ward2024)**
+
 ## About the estimates
 
 I use **multilevel regression and poststratification (MRP)** to combine Wave 29 of the British Election Study Internet Panel with census data from England and Wales (2021) and Scotland (2022).
