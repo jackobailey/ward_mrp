@@ -21,7 +21,7 @@ The process has three steps:
 
 ## What's in the CSV?
 
-Each row represents a party that ran in a given ward.
+Each row represents a party's result in a given ward.
 
 | Column | Description |
 | :--- | :--- |
