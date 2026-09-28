@@ -1,8 +1,10 @@
 # 2024 Election: Ward Estimates
 
+[![CSV downloads](https://img.shields.io/github/downloads/jackobailey/ward_mrp/ward_ge2024_results.csv?displayAssetName=false&label=CSV%20downloads&color=0969da)](https://github.com/jackobailey/ward_mrp/releases)
+
 Party vote shares for **7,993 wards in Great Britain**, estimated for the **2024 UK general election**.
 
-**[Download the estimates (CSV)](https://github.com/jackobailey/ward_mrp/raw/refs/heads/main/_output/ward_ge2024_results.csv)** · 47,376 rows · 95% uncertainty intervals
+**[Download the estimates (CSV)](https://github.com/jackobailey/ward_mrp/releases/latest/download/ward_ge2024_results.csv)** · 47,376 rows · 95% uncertainty intervals
 
 > **Geography:** These estimates use **2022 census ward boundaries**, which may differ from those in use at the 2024 election. Northern Ireland is not included.
 
@@ -45,3 +47,5 @@ Each row represents a **ward–party combination with a positive estimated vote 
 - **Count voters once per ward.** The `voters` value is repeated on every party row, so summing this column across all rows would overcount valid votes.
 - **Treat the constituency field as a label.** It identifies the constituency containing the largest share of the ward's census adult population, with exact ties resolved by constituency code. It does not allocate all of a split ward's votes to that constituency. Do not aggregate the CSV by this label to check constituency totals: whole-ward shares cannot recover the separate constituency contributions of split wards.
 - **Distinguish calibration from accuracy.** Matching constituency results does not establish ward-level accuracy. These are modelled estimates, with uncertainty bounds supplied in the CSV.
+
+*The counter records CSV release downloads from 28 September 2026, including repeat downloads. Direct downloads of the repository file and repository clones are not included.*
