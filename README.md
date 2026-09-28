@@ -1,6 +1,6 @@
 # 2024 Election: Ward Estimates
 
-Estimates of party vote shares at the **2024 UK general election**, covering **7,993 census wards across Great Britain**.
+Party vote shares for **7,993 wards in Great Britain**, estimated for the **2024 UK general election**.
 
 **[Download the estimates (CSV)](https://github.com/jackobailey/ward_mrp/raw/refs/heads/main/_output/ward_ge2024_results.csv)** · 47,376 rows · 95% uncertainty intervals
 
